@@ -1,0 +1,13 @@
+class Login:
+    def login(self,inData,mode=True):             #登录方法
+        #url 地址
+        url= f'{HOST}/index.html#/odc/login'        #f=传参的方法
+        # 传递参数
+        payload=inData
+        # 请求
+        resp = requests.post(url,json=payload)     #resp=覆盖请求对象
+        if mode:     #获取token
+            return resp.json() ["token"]     #返回是字典形式
+        else:     #获取相应数据
+            return resp.json()          #返回是字典形式
+import pprint          #引入完美打印模块
